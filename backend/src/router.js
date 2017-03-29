@@ -3,6 +3,16 @@ var url = require('url');
 var vault = require('./vault');
 var qs = require('querystring');
 
+
+  
+  var test = "abc",
+      enc = vault.encrypt(test, "klucz"),
+      dec = vault.decrypt(enc, "klucz");
+      
+  console.log(test + " ---> " + enc + " ---> " + dec);
+
+
+
 function createRouter(req, res) {
   try{
     var parsedUrl = url.parse(req.url, true); 
@@ -12,9 +22,6 @@ function createRouter(req, res) {
       
       req.on('data', function (data) {
           body += data;
-
-          // Too much POST data, kill the connection!
-          // 1e6 === 1 * Math.pow(10, 4) === 1 * 10000 ~~~ 10kB
           if (body.length > 1e4)
               request.connection.destroy();
       });
@@ -32,12 +39,16 @@ function createRouter(req, res) {
 }
 
 function handlePost(post, res){
-  if (post && post.value) {
-    ok(res, vault.store(post.value));    
-  } else if (post && post.token) {
-    ok(res, vault.fetch(post.token));
-  } else {
-    ok(res, 'NOOP ' + pseudoRandomId());
+  try{
+    if (post && post.value) {
+      ok(res, vault.store(post.value));    
+    } else if (post && post.token) {
+      ok(res, vault.fetch(post.token));
+    } else {
+      ok(res, 'NOOP ' + pseudoRandomId());
+    }
+  }catch(e){
+    error(res, e);
   }
 }
 

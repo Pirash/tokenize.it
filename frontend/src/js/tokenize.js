@@ -1,7 +1,28 @@
 $(document).ready(function(){
   $('.tokenize button').click(tokenize);
+  $('.tokenize .input')
+    .change(clearTokenizeOutput)
+    .keydown(clearTokenizeOutput)
+    .focus(selectAll);
   $('.detokenize button').click(detokenize);
+  $('.detokenize .input')
+    .change(clearDetokenizeOutput)
+    .keydown(clearDetokenizeOutput)
+    .focus(selectAll);
+  
 });
+
+function clearTokenizeOutput(){
+  $('.tokenize .output').val('');
+}
+
+function clearDetokenizeOutput(){
+  $('.detokenize .output').val('');
+}
+
+function selectAll(){
+  $(this).select();
+}
 
 function tokenize(){
   var input = $('.tokenize .input').val();

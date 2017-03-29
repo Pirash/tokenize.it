@@ -1,6 +1,7 @@
 module.exports = get
 "use strict"
 var rnd = require('random-js');
+var secrnd = require('secure-random');
 var fs = require('fs');
 
 var randEngine;
@@ -43,6 +44,8 @@ function init(){
 	console.log('init');
 	randEngine = rnd.engines.mt19937();
 	randEngine.autoSeed();
+ 
+
 
 	var contents = fs.readFileSync(assetFile, {encoding :'UTF-8'});
 	var lines = contents.split(/\s+/);
