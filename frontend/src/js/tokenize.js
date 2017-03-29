@@ -9,6 +9,10 @@ $(document).ready(function(){
     .change(clearDetokenizeOutput)
     .keydown(clearDetokenizeOutput)
     .focus(selectAll);
+  $('.detokenize .output')
+    .focus(selectAll);
+  $('.tokenize .output')
+    .focus(selectAll);  
   
 });
 
