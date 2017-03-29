@@ -1,6 +1,7 @@
 { "dependencies" :
   { 
 	"random-js" : "latest",
-	"url" : "latest"
+	"url" : "latest",
+  "querystring" : "latest"
   }
 }

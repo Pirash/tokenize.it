@@ -6,8 +6,9 @@ $(document).ready(function(){
 function tokenize(){
   var input = $('.tokenize .input').val();
   $.ajax({
-	url  : "/tokenizer",
-	data : {value : input}
+    url     : "/tokenizer",
+    data    : {value : input},
+    method  : 'POST'
   }).done(tokenizeDone);
 }
 
@@ -19,8 +20,9 @@ function tokenizeDone(result){
 function detokenize(){
   var input = $('.detokenize .input').val();
   $.ajax({
-	url  : "/tokenizer",
-	data : {token : input}
+    url     : "/tokenizer",
+    data    : {token : input},
+    method  : 'POST'
   }).done(detokenizeDone);
 }
 
