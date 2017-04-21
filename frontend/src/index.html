@@ -2,6 +2,7 @@
 <html>
 <head>
 <title>tokenize.it</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:700" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="fa/css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="css/tokenize.css">
@@ -13,17 +14,42 @@
 <h1><i class="fa fa-hand-rock-o"></i><i class="fa fa-hand-paper-o"></i> tokenize.it</h1>
 
 <div class="tokenize">
-<textarea class="input" placeholder="secret to keep"></textarea>
-<button ><i class="fa fa-lock"> </i> keep the secret</button class="fa fa-lock">
-<textarea class="output" placeholder="key to the secret"></textarea>
+  <span class="info">You can store here a short text, like a password, account number, or something else you don't want to put into an email or chat in clear. In return you will get a <i>secret key</i> that you, or someone you trust, can use to reveal the secret itself.</span>
+  <button class="start">
+    <i class="fa fa-lock"> </i> 
+    <span class="label">keep a secret</span>
+  </button>
+  <textarea class="input hidden" placeholder="secret to keep"></textarea>
+  <button class="do hidden">
+    <i class="fa fa-lock"> </i> 
+    <span class="label">keep the secret</span>
+  </button>
+  <textarea class="output hidden" placeholder="key to the secret"></textarea>
+  <button class="complete hidden">
+    <i class="fa fa-check"> </i> 
+    <span class="label">done</span>
+  </button>
 </div>
 
 <div class="detokenize">
-<textarea class="input" placeholder="secret key"></textarea>
-<button ><i class="fa fa-unlock"> </i> tell the secret</button>
-<textarea class="output" placeholder="the secret revealed"></textarea>
+  <span class="info">If you have a <i>secret key</i>, put it here to reveal the secret itself. Once revealed, it's forgotten from the server and cannot be brought back.</span>
+  <button class="start">
+    <i class="fa fa-unlock"> </i> 
+    <span class="label">tell the secret</span>
+  </button>
+  <textarea class="input hidden" placeholder="your secret key"></textarea>
+  <button class="do hidden">
+    <i class="fa fa-unlock"> </i> 
+    <span class="label">tell the secret</span>
+  </button>
+  <textarea class="output hidden" placeholder="the secret revealed"></textarea>
+  <button class="complete hidden">
+    <i class="fa fa-check"> </i> 
+    <span class="label">done</span>
+  </button>  
 </div>
 
+<div class="footer">&copy; @ntxt 2017</div>
 </body>
 
 </html> 

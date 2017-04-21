@@ -6,6 +6,8 @@ body{
 }
 body *{
     box-sizing: border-box;
+    transition: background-color 0.5s;
+    transition: color 0.5s;
 }
 
 h1 {
@@ -16,21 +18,41 @@ h1 {
     padding: 0.1em 1em;
     text-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
     width: auto;
+    transform: rotate(91deg) translate(3em,4em);
 }
 h1:hover i:nth(1){
-display:none;
+  display:none;
+}
+@media (max-width:400px){
+  h1{
+  transform: rotate(1deg) translate(0,0);
+  }
 }
 
 div {
     background-color: white;
     border: 1px dashed #999999;
-    /*height: 10em;*/
     margin: 1em auto;
-    width: 50%;
 }
 
+@media (max-width:800px){
+  div{width: 90%;}
+} 
+@media (min-width:801px){
+  div{width: 50%;}
+} 
+
 div:hover{
-background: linear-gradient(to bottom, #b8c6df 0%,#6d88b7 100%); 
+  background: linear-gradient(to bottom, #b8c6df 0%,#6d88b7 100%); 
+}
+
+div>span{
+  color: gray;
+  margin: 2em;
+  display: block;
+}
+div:hover>span{
+  color:white;
 }
 
 textarea, input, button {
@@ -40,7 +62,9 @@ textarea, input, button {
     width: 90%;
    resize: none;	
 }
-
+textarea{
+  width:calc(90% - 1em);
+}
 
 button {
     background: rgba(0, 0, 0, 0) linear-gradient(to bottom, #f2f6f8 0%, #d8e1e7 50%, #b5c6d0 51%, #e0eff9 100%) repeat scroll 0 0;
@@ -66,4 +90,19 @@ button:active{
 textarea {
     border: 1px dotted #555555;
     padding: 1em;
+}
+
+.hidden{
+  display:none;
+}
+.footer{
+transform: rotate(-2deg);
+border:none;
+background:none;
+color:gray;
+margin-top:5em;
+
+}
+.footer:hover{
+background:none;
 }
